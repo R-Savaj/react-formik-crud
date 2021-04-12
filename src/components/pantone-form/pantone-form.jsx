@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-import { userService } from '../../services/user.service';
+import { pantoneService } from '../../services/pantone.service';
 
-function UserForm({ history, match }) {
+function PantoneForm({ history, match }) {
     const { id } = match.params;
     const isAddMode = !id;
     const [user, setUser] = useState({
@@ -30,7 +30,7 @@ function UserForm({ history, match }) {
     }
 
     function createUser(fields) {
-        userService.create(fields)
+        pantoneService.create(fields)
             .then((res) => {
                 history.push('.');
             })
@@ -40,7 +40,7 @@ function UserForm({ history, match }) {
     }
 
     function updateUser(id, fields, setSubmitting) {
-        userService.update(id, fields)
+        pantoneService.update(id, fields)
             .then(() => {
                 history.push('..');
             })
@@ -51,7 +51,7 @@ function UserForm({ history, match }) {
 
     useEffect(() => {
         if (!isAddMode) {
-            userService.getById(id).then(u => {
+            pantoneService.getById(id).then(u => {
                 setUser(u.data);
             });
         }
@@ -96,4 +96,4 @@ function UserForm({ history, match }) {
     );
 }
 
-export default UserForm;
+export default PantoneForm;

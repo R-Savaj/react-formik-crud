@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react';
-import {userService} from '../../services/user.service';
+import {pantoneService} from '../../services/pantone.service';
 import { Link } from 'react-router-dom';
 
-const UserList=()=>{
+const PantoneList=()=>{
     const [users, setUser] = useState([]);
     useEffect(()=>{
-        userService.getAll().then(x=>setUser(x.data))
+        pantoneService.getAll().then(x=>setUser(x.data))
     },[])
   
     function deleteUser(id) {
-        userService.delete(id).then(() => {
+        pantoneService.delete(id).then(() => {
             setUser(users => users.filter(x => x.id !== id));
         });
     }
@@ -58,4 +58,4 @@ const UserList=()=>{
         </div>
     )
 }
-export default UserList;
+export default PantoneList;
