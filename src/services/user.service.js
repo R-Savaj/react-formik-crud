@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = 'https://reqres.in/api/products';
+const baseUrl = 'http://localhost:3001';
 export const userService={
     getAll,
     getById,
@@ -9,29 +9,30 @@ export const userService={
 };
 
 async function getAll(){
-    const response = await axios.get(baseUrl);
+    const response = await axios.get(baseUrl+'/pantones');
     return response.data;
 }
 
 async function getById(id){
-    const response = await axios.get(baseUrl+'/'+ id);
+    const response = await axios.get(baseUrl+'/pantone/'+ id);
     return response.data;
 }
 
 async function create(param){
-    const response = await axios.post(baseUrl,param);
+    console.log('param',param,baseUrl+'/create')
+    const response = await axios.post(baseUrl+'/create',param);
     console.log('create user',response);
     return response;
 }
 
 async function update(id,param){
-    const response = await axios.put(`${baseUrl}/${id}`,param);
+    const response = await axios.put(`${baseUrl}/pantone/${id}`,param);
     console.log('update user',response);
     return response;
 }
 
 async function _delete(id){
-    const response = await axios.delete( `${baseUrl}/${id}`);
+    const response = await axios.delete( `${baseUrl}/pantone/${id}`);
     console.log('update user',response);
     return response;
 }

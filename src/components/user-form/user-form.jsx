@@ -62,7 +62,7 @@ function UserForm({ history, match }) {
             {({ errors, touched, isSubmitting, values }) => {
                 return (
                     <Form>
-                        <h1>{isAddMode ? 'Add User' : 'Edit User'}</h1>
+                        <h1>{isAddMode ? 'Add Pantone' : 'Edit Pantone'}</h1>
                         <div className="form-row">
                             <div className="form-group col-5">
                                 <label>Name</label>

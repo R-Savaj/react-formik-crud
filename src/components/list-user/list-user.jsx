@@ -7,8 +7,7 @@ const UserList=()=>{
     useEffect(()=>{
         userService.getAll().then(x=>setUser(x.data))
     },[])
-    console.log('users',users);
-
+  
     function deleteUser(id) {
         userService.delete(id).then(() => {
             setUser(users => users.filter(x => x.id !== id));
@@ -17,8 +16,8 @@ const UserList=()=>{
 
     return (
         <div>
-            <h1>User</h1>
-            <Link to="/add-user" className="btn btn-sm btn-success mb-2">Add User</Link>
+            <h1>Pantone</h1>
+            <Link to="/add-user" className="btn btn-sm btn-success mb-2">Add Pantone</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
